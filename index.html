@@ -10,9 +10,9 @@
     <style>
         :root { --color-texto: #444; --color-dorado: #C5A059; --fondo: #fffbf7; }
         body { font-family: 'Montserrat', sans-serif; background-color: var(--fondo); color: var(--color-texto); margin: 0; padding: 0; text-align: center; }
-        .container { max-width: 600px; margin: auto; background: white; position: relative; overflow-x: hidden; padding-bottom: 50px; }
+        .container { max-width: 600px; margin: auto; background: white; position: relative; overflow-x: hidden; padding-bottom: 50px; border-left: 1px solid #eee; border-right: 1px solid #eee; }
 
-        /* EFECTO FLORES INVISIBLES */
+        /* FLORES */
         .flor { position: absolute; z-index: 5; pointer-events: none; mix-blend-mode: multiply; }
         .flor-esquina { top: -10px; left: -20px; width: 180px; }
         .flor-centro { position: relative; width: 120px; margin: 0 auto; display: block; mix-blend-mode: multiply; }
@@ -20,7 +20,6 @@
         header { padding: 60px 20px 20px; }
         .nuestra-boda { font-family: 'Great Vibes', cursive; font-size: 2.2rem; color: #888; margin-bottom: 20px; }
         
-        /* NOMBRES VERTICALES */
         .nombres-container { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: #222; line-height: 1.1; margin: 20px 0; font-weight: 700; }
         .nombres-container span { display: block; }
         .ampersand { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: var(--color-dorado); margin: 5px 0; }
@@ -30,14 +29,19 @@
         .num { font-family: 'Playfair Display', serif; font-size: 1.4rem; display: block; color: var(--color-dorado); font-weight: bold; }
         .lab { font-size: 0.6rem; text-transform: uppercase; color: #999; }
 
-        .foto-principal { width: 90%; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 30px; }
+        .foto-principal { width: 90%; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 20px; }
+
+        /* SECCIÓN NUESTRA MÚSICA */
+        .seccion-musica { padding: 20px; margin-bottom: 30px; }
+        .titulo-musica { font-family: 'Great Vibes', cursive; font-size: 1.8rem; color: #888; margin-bottom: 10px; }
+        .btn-play-grande { background: white; border: 1px solid var(--color-dorado); color: var(--color-dorado); padding: 10px 25px; border-radius: 50px; font-size: 0.9rem; letter-spacing: 1px; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; }
 
         .biblico { padding: 40px 25px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; line-height: 1.6; }
         .pajaritos { color: var(--color-dorado); font-size: 1.8rem; margin: 15px 0; }
 
         .padres-sec { background: #fafafa; padding: 40px 10px; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
         .padres-col h3 { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--color-dorado); margin-bottom: 10px; }
-        .padres-col p { font-family: 'Playfair Display', serif; margin: 5px 0; font-size: 1rem; }
+        .padres-col p { font-family: 'Playfair Display', serif; margin: 4px 0; font-size: 1rem; }
 
         .nos-casamos { letter-spacing: 5px; color: #888; margin-top: 50px; }
         .fecha-gr { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: bold; margin: 5px 0; }
@@ -77,11 +81,18 @@
             </div>
 
             <img src="boda.jpeg" class="foto-principal">
+            
+            <div class="seccion-musica">
+                <p class="titulo-musica">Nuestra música</p>
+                <button class="btn-play-grande" onclick="toggleMusic()">
+                    <i id="play-icon" class="fas fa-play"></i> Escuchar canción
+                </button>
+            </div>
         </header>
 
         <div class="biblico">
             "Mejores son dos que uno solo (...) Y es que, si uno de ellos cae, el otro puede ayudar a su compañero a levantarse. Y una cuerda triple no se rompe fácilmente."
-            <br><span style="color:var(--color-dorado); font-weight:bold; font-size:0.9rem;">Ecl. 4:9,10,12</span>
+            <br><span style="color:var(--color-dorado); font-weight:bold; font-size:0.9rem;">Ecl. 4:9, 10, 12</span>
             
             <div class="pajaritos">
                 <i class="fas fa-dove"></i>
@@ -104,22 +115,20 @@
 
         <p class="nos-casamos">NOS CASAMOS</p>
         <div class="fecha-gr">20 de Abril</div>
-        <div class="hora-gigante">10:30 AM</div>
-
-        <p style="font-family:'Great Vibes'; font-size:1.8rem; padding: 20px;">"Bajo la luz del día y con el corazón lleno de esperanza, unimos nuestras vidas."</p>
+        <div class="hora-gigante">11:00 AM</div>
 
         <section class="evento">
             <i class="fas fa-book-open" style="color:var(--color-dorado); font-size:2rem;"></i>
             <h2 class="titulo-evento">Consejo Bíblico Matrimonial</h2>
-            <span class="dir-evento">Salón del Reino de Los Testigos de Jehová<br><strong>Amaru Inca Yupanqui 735</strong>, La Victoria</span>
-            <a href="https://maps.google.com/?q=Calle+Amaru+Inca+Yupanqui+751+La+Victoria" target="_blank" class="btn-mapa">VER DIRECCIÓN</a>
+            <span class="dir-evento">Salón del Reino de Los Testigos de Jehová<br><strong>Amaru Inca Yupanqui 736</strong>, La Victoria</span>
+            <a href="https://www.google.com/maps/search/?api=1&query=Amaru+Inca+Yupanqui+736+La+Victoria" target="_blank" class="btn-mapa">VER DIRECCIÓN</a>
         </section>
 
         <section class="evento" style="background:#fafbf5;">
             <i class="fas fa-glass-cheers" style="color:var(--color-dorado); font-size:2rem;"></i>
             <h2 class="titulo-evento">Recepción</h2>
             <span class="dir-evento">Mr. Will Campestre<br>Prolongación Saenz Peña y calle España, Monsefú</span>
-            <a href="https://maps.google.com/?q=Mr.+Will+Campestre+Monsefu" target="_blank" class="btn-mapa">VER DIRECCIÓN</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Mr.+Will+Campestre+Monsefu" target="_blank" class="btn-mapa">VER DIRECCIÓN</a>
         </section>
 
         <section style="padding:20px;">
@@ -130,24 +139,11 @@
             </div>
         </section>
 
-        <section class="evento">
-            <div style="margin-bottom:30px;">
-                <i class="fas fa-user-tie" style="color:var(--color-dorado); font-size:1.5rem;"></i>
-                <h3>Código de Vestimenta</h3>
-                <p>Formal de Día</p>
-            </div>
-            <div>
-                <i class="fas fa-gift" style="color:var(--color-dorado); font-size:1.5rem;"></i>
-                <h3>Regalos</h3>
-                <p style="font-size:0.9rem; color:#666; max-width:80%; margin:auto;">Su presencia es nuestro mejor regalo. Si desean tener un detalle, dispondremos de un buzón de sobres.</p>
-            </div>
-        </section>
-
         <div class="rsvp">
             <h2>Confirmación</h2>
             <div class="botones-wa">
-                <a href="https://wa.me/51992926660?text=Hola%20Naomi,%20confirmo%20mi%20asistencia." class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Confirmar a la Novia</a>
-                <a href="https://wa.me/51990907777?text=Hola%20Josías,%20confirmo%20mi%20asistencia." class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Confirmar al Novio</a>
+                <a href="https://wa.me/51992926660" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Confirmar a la Novia</a>
+                <a href="https://wa.me/51990907777" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Confirmar al Novio</a>
             </div>
         </div>
 
@@ -156,7 +152,20 @@
     </div>
 
     <script>
-        const target = new Date("April 20, 2026 10:30:00").getTime();
+        const audio = document.getElementById("player");
+        const playIcon = document.getElementById("play-icon");
+
+        function toggleMusic() {
+            if (audio.paused) {
+                audio.play();
+                playIcon.classList.replace("fa-play", "fa-pause");
+            } else {
+                audio.pause();
+                playIcon.classList.replace("fa-pause", "fa-play");
+            }
+        }
+
+        const target = new Date("April 20, 2026 11:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
             const diff = target - now;
@@ -165,27 +174,6 @@
             document.getElementById("m").innerText = Math.floor((diff % (1000*60*60)) / (1000*60));
             document.getElementById("s").innerText = Math.floor((diff % (1000*60)) / 1000);
         }, 1000);
-
-        // LÓGICA DE MÚSICA AUTOMÁTICA
-        const p = document.getElementById("player");
-        let playAttempted = false;
-
-        function startMusic() {
-            if (!playAttempted) {
-                p.play().catch(() => {});
-                playAttempted = true;
-            }
-        }
-
-        // Se activa al tocar, mover o hacer scroll
-        window.addEventListener('scroll', startMusic);
-        window.addEventListener('click', startMusic);
-        window.addEventListener('touchstart', startMusic);
-
-        function toggleMusic() { 
-            p.paused ? p.play() : p.pause(); 
-            playAttempted = true;
-        }
     </script>
 </body>
 </html>
