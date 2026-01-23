@@ -3,72 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boda Josias & Naomi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+    <title>Boda Josías & Naomi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        body { 
-            font-family: 'Montserrat', sans-serif; 
-            background-color: #ffffff; 
-            color: #4a4a4a; 
-            margin: 0; 
-            padding: 20px; 
-            text-align: center; 
+        /* --- ESTILO INGENIERÍA: CLEAN & MINIMAL --- */
+        :root {
+            --color-texto: #444; 
+            --color-dorado: #C5A059;     /* Dorado suave */
+            --fondo: #ffffff;            
+            --fondo-gris: #f8f8f8;
         }
-        .container { max-width: 600px; margin: auto; padding-bottom: 50px; }
-        
-        /* Títulos elegantes */
-        h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #222; margin-bottom: 5px; }
-        p.fecha { font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; margin-top: 0; color: #666; }
-        
-        /* Imagen con sombra suave */
-        img { width: 100%; border-radius: 4px; margin: 30px 0; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        
-        /* Cronómetro Minimalista */
-        #cuenta-regresiva { 
-            display: flex; justify-content: space-around; 
-            margin: 40px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 20px 0; 
-        }
-        .tiempo-box { text-align: center; }
-        .numero { font-size: 1.8rem; font-weight: 600; display: block; color: #222; }
-        .etiqueta { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #888; }
 
-        /* Botón de Música */
-        button { 
-            background: #fff; border: 1px solid #222; color: #222; 
-            padding: 12px 30px; font-size: 0.8rem; letter-spacing: 2px; 
-            cursor: pointer; transition: 0.3s; text-transform: uppercase;
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--fondo);
+            color: var(--color-texto);
+            margin: 0; padding: 0;
+            text-align: center;
         }
-        button:hover { background: #222; color: #fff; }
+
+        .container {
+            max-width: 650px; margin: auto; background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.03);
+            overflow-x: hidden;
+        }
+
+        /* --- ENCABEZADO --- */
+        header { padding: 50px 20px 20px; }
+        
+        .nombres {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            color: #222;
+            line-height: 1.1;
+            margin: 15px 0;
+        }
+        
+        .fecha-top {
+            font-size: 1rem; letter-spacing: 4px; text-transform: uppercase;
+            color: #999; border-bottom: 1px solid #eee; display: inline-block; padding-bottom: 10px;
+        }
+
+        .foto-principal {
+            width: 100%; height: auto; border-radius: 4px;
+            margin: 20px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* --- GALERÍA DE FOTOS --- */
+        .galeria-section { padding: 20px; background: var(--fondo-gris); }
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2 columnas */
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .galeria-grid img {
+            width: 100%; height: 200px; object-fit: cover;
+            border-radius: 4px; transition: transform 0.3s;
+        }
+
+        /* --- CRONÓMETRO --- */
+        #cuenta-regresiva {
+            display: flex; justify-content: center; gap: 15px;
+            padding: 40px 20px; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0;
+        }
+        .numero { font-family: 'Playfair Display', serif; font-size: 2rem; color: #222; display: block; }
+        .etiqueta { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; }
+
+        /* --- VERSÍCULO --- */
+        .cita-biblica {
+            padding: 40px 30px; background-color: #fff;
+            font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #555;
+            line-height: 1.8;
+        }
+
+        /* --- DETALLES --- */
+        .seccion { padding: 50px 20px; border-bottom: 1px solid #eee; }
+        .titulo-seccion {
+            font-family: 'Playfair Display', serif; font-size: 1.8rem;
+            margin-bottom: 10px; color: #222;
+        }
+        .direccion { display: block; margin: 15px 0; font-weight: 500; color: #333; }
+        
+        /* Botones */
+        .btn {
+            display: inline-block; padding: 12px 25px;
+            border: 1px solid #333; color: #333; text-decoration: none;
+            text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px;
+            margin-top: 10px; transition: 0.3s;
+        }
+        .btn:hover { background: #333; color: white; }
+
+        .btn-whatsapp {
+            background-color: #25D366; border: none; color: white;
+            padding: 15px 30px; border-radius: 50px; font-weight: bold;
+            text-decoration: none; display: inline-block; margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Música flotante */
+        .music-btn {
+            position: fixed; bottom: 20px; right: 20px;
+            width: 50px; height: 50px; background: white; border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;
+            cursor: pointer; z-index: 100; font-size: 1.2rem;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Josias & Naomi</h1>
-        <p class="fecha">20 de Abril, 2026 • 11:00 AM</p>
+        <header>
+            <p class="fecha-top">20 . 04 . 2026</p>
+            <h1 class="nombres">Josías<br>&<br>Naomi</h1>
+            
+            <img src="boda.jpeg" alt="Josías y Naomi" class="foto-principal">
 
-        <img src="boda.jpeg" alt="Josias y Naomi">
+            <div id="cuenta-regresiva">
+                <div><span class="numero" id="dias">00</span><span class="etiqueta">Días</span></div>
+                <div><span class="numero" id="horas">00</span><span class="etiqueta">Hs</span></div>
+                <div><span class="numero" id="minutos">00</span><span class="etiqueta">Min</span></div>
+                <div><span class="numero" id="segundos">00</span><span class="etiqueta">Seg</span></div>
+            </div>
+        </header>
 
-        <div id="cuenta-regresiva">
-            <div class="tiempo-box"><span class="numero" id="dias">0</span><span class="etiqueta">Días</span></div>
-            <div class="tiempo-box"><span class="numero" id="horas">0</span><span class="etiqueta">Hs</span></div>
-            <div class="tiempo-box"><span class="numero" id="minutos">0</span><span class="etiqueta">Min</span></div>
-            <div class="tiempo-box"><span class="numero" id="segundos">0</span><span class="etiqueta">Seg</span></div>
+        <section class="galeria-section">
+            <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 20px;">Nuestra Historia</p>
+            <div class="galeria-grid">
+                <img src="foto1.jpeg" alt="Foto 1">
+                <img src="foto2.jpeg" alt="Foto 2">
+                <img src="foto3.jpeg" alt="Foto 3">
+                <img src="foto4.jpeg" alt="Foto 4">
+            </div>
+        </section>
+
+        <div class="cita-biblica">
+            "Mejores son dos que uno solo (...) Y es que, si uno de ellos cae, el otro puede ayudar a su compañero a levantarse. Y una cuerda triple no se rompe fácilmente."
+            <br><br><span style="font-size: 0.9rem; color: #C5A059;">Eclesiastés 4:9, 10, 12</span>
         </div>
 
-        <p>Acompaña este momento:</p>
-        <button onclick="toggleMusic()">🎵 Reproducir Música</button>
+        <section class="seccion">
+            <h2 class="titulo-seccion">Consejo Bíblico Matrimonial</h2>
+            <p>10:30 AM</p>
+            <span class="direccion">Salón del Reino "Los Amautas"<br>Calle Inca Yupanqui 773, La Victoria</span>
+            <a href="https://www.google.com/maps/search/?api=1&query=Calle+Inca+Yupanqui+773+La+Victoria" target="_blank" class="btn">
+                <i class="fas fa-map-marker-alt"></i> Ver Mapa
+            </a>
+        </section>
+
+        <section class="seccion" style="background-color: #fbfbfb;">
+            <h2 class="titulo-seccion">Recepción</h2>
+            <p>A continuación de la ceremonia</p>
+            <span class="direccion">Mr. Will Campestre<br>Prolongación Saenz Peña y Calle España, Monsefú</span>
+            <a href="https://www.google.com/maps/search/?api=1&query=Mr+Will+Campestre+Monsefu" target="_blank" class="btn">
+                <i class="fas fa-glass-cheers"></i> Ver Mapa
+            </a>
+        </section>
+
+        <section class="seccion">
+            <div style="margin-bottom: 40px;">
+                <i class="fas fa-user-tie" style="font-size: 1.5rem; color: #C5A059; margin-bottom: 10px;"></i>
+                <h3 style="font-family: 'Playfair Display', serif; margin: 5px 0;">Código de Vestimenta</h3>
+                <p>Formal de Día</p>
+            </div>
+            
+            <div>
+                <i class="fas fa-gift" style="font-size: 1.5rem; color: #C5A059; margin-bottom: 10px;"></i>
+                <h3 style="font-family: 'Playfair Display', serif; margin: 5px 0;">Regalos</h3>
+                <p style="font-size: 0.9rem; color: #666; max-width: 400px; margin: auto;">
+                    Su presencia es nuestro mejor regalo. Si desean tener un detalle con nosotros, dispondremos de un buzón de sobres en la recepción.
+                </p>
+            </div>
+        </section>
+
+        <section class="seccion" style="background-color: #333; color: white;">
+            <h2 class="titulo-seccion" style="color: white;">Confirmación</h2>
+            <p style="color: #ccc;">Esperamos contar contigo.</p>
+            <a href="https://wa.me/51992926660?text=Hola%20Josías%20y%20Naomi,%20confirmo%20mi%20asistencia%20a%20su%20boda.%20¡Muchas%20felicidades!" class="btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> Confirmar Asistencia
+            </a>
+        </section>
+
+        <div class="music-btn" onclick="toggleMusic()">🎵</div>
         <audio id="player" loop>
             <source src="musica.mp3" type="audio/mpeg">
         </audio>
+
     </div>
 
     <script>
-        // --- CONFIGURACIÓN DE INGENIERÍA ---
-        // Fecha exacta: 20 de Abril de 2026 a las 11:00 AM
-        const fechaBoda = new Date("April 20, 2026 11:00:00").getTime();
+        // --- FECHA CORRECTA: 20 de Abril 2026, 10:30 AM ---
+        const fechaBoda = new Date("April 20, 2026 10:30:00").getTime();
 
-        // Lógica del Cronómetro
         const x = setInterval(function() {
             const ahora = new Date().getTime();
             const distancia = fechaBoda - ahora;
@@ -79,14 +207,9 @@
             document.getElementById("segundos").innerText = Math.floor((distancia % (1000 * 60)) / 1000);
         }, 1000);
 
-        // Lógica de Música
         function toggleMusic() {
             const audio = document.getElementById("player");
-            if (audio.paused) {
-                audio.play();
-            } else {
-                audio.pause();
-            }
+            audio.paused ? audio.play() : audio.pause();
         }
     </script>
 </body>
