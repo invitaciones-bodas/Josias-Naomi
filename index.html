@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boda Josías & Naomi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* --- ESTILO INGENIERÍA: CLEAN & MINIMAL --- */
+        /* --- ESTILO INGENIERÍA: FLORAL & ELEGANT --- */
         :root {
             --color-texto: #444; 
-            --color-dorado: #C5A059;     /* Dorado suave */
-            --fondo: #ffffff;            
-            --fondo-gris: #f8f8f8;
+            --color-dorado: #C5A059;
+            --fondo: #fffbf7; /* Crema muy suave */
         }
 
         body {
@@ -26,175 +25,230 @@
 
         .container {
             max-width: 650px; margin: auto; background: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.03);
+            box-shadow: 0 0 30px rgba(0,0,0,0.05);
             overflow-x: hidden;
+            position: relative;
+            border-left: 1px solid #f7f0e6;
+            border-right: 1px solid #f7f0e6;
         }
 
-        /* --- ENCABEZADO --- */
-        header { padding: 50px 20px 20px; }
+        /* --- DECORACIÓN FLORAL --- */
+        /* Las flores flotan sobre el diseño */
+        .flor-decorativa {
+            position: absolute; width: 180px; z-index: 10; pointer-events: none; opacity: 0.95;
+        }
+        .flor-arriba-izq { top: -30px; left: -40px; transform: rotate(-10deg); }
+        .flor-abajo-der { bottom: -30px; right: -40px; transform: rotate(180deg); }
+
+        /* --- ENCABEZADO Y PADRES --- */
+        header { padding: 60px 20px 20px; position: relative; }
         
-        .nombres {
+        .bendicion {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem; color: #777; line-height: 1.2; margin-bottom: 30px;
+        }
+        
+        .padres-grid {
+            display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;
+            font-family: 'Playfair Display', serif; font-size: 0.9rem; margin-bottom: 40px;
+        }
+        .padres-col h3 {
+            font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; 
+            color: var(--color-dorado); margin-bottom: 8px; border-bottom: 1px solid #eee; padding-bottom: 5px;
+        }
+        .padres-col p { margin: 3px 0; color: #444; }
+
+        /* --- NOMBRES Y FECHA --- */
+        .nombres-grandes {
             font-family: 'Playfair Display', serif;
-            font-size: 3.2rem;
-            color: #222;
-            line-height: 1.1;
-            margin: 15px 0;
+            font-size: 3.8rem; color: #222;
+            line-height: 1; margin: 20px 0;
         }
         
-        .fecha-top {
-            font-size: 1rem; letter-spacing: 4px; text-transform: uppercase;
-            color: #999; border-bottom: 1px solid #eee; display: inline-block; padding-bottom: 10px;
+        .fecha-destacada {
+            border-top: 2px solid var(--color-dorado);
+            border-bottom: 2px solid var(--color-dorado);
+            padding: 15px 0; margin: 30px auto; width: 80%;
         }
+        .dia-gigante { font-family: 'Playfair Display', serif; font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px; }
+        .anio-gigante { font-size: 1.2rem; letter-spacing: 8px; color: #666; margin-top: 5px; }
+        .hora-gigante { font-size: 1rem; margin-top: 5px; color: #888; font-family: 'Montserrat', sans-serif; }
 
-        .foto-principal {
-            width: 100%; height: auto; border-radius: 4px;
-            margin: 20px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        /* --- GALERÍA DE FOTOS --- */
-        .galeria-section { padding: 20px; background: var(--fondo-gris); }
-        .galeria-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* 2 columnas */
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .galeria-grid img {
-            width: 100%; height: 200px; object-fit: cover;
-            border-radius: 4px; transition: transform 0.3s;
+        .foto-portada {
+            width: 90%; height: auto; border: 5px solid white; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-bottom: 30px;
+            transform: rotate(-1deg);
         }
 
         /* --- CRONÓMETRO --- */
-        #cuenta-regresiva {
-            display: flex; justify-content: center; gap: 15px;
-            padding: 40px 20px; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0;
-        }
-        .numero { font-family: 'Playfair Display', serif; font-size: 2rem; color: #222; display: block; }
-        .etiqueta { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; }
+        #timer { display: flex; justify-content: center; gap: 10px; margin: 40px 0; }
+        .time-box { background: #fff; border: 1px solid #eee; padding: 10px; min-width: 55px; }
+        .time-num { font-family: 'Playfair Display', serif; font-size: 1.5rem; display: block; color: #333; }
+        .time-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; color: #999; }
 
-        /* --- VERSÍCULO --- */
+        /* --- GALERÍA 10 FOTOS --- */
+        .galeria-container { background: #fafafa; padding: 40px 10px; }
+        .galeria-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+        }
+        .galeria-grid img {
+            width: 100%; height: 200px; object-fit: cover; border-radius: 3px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s;
+        }
+        .galeria-grid img:hover { transform: scale(1.02); z-index: 2; }
+        /* Hacemos que algunas fotos ocupen 2 espacios para que se vea dinámico */
+        .foto-ancha { grid-column: span 2; height: 300px !important; }
+
+        /* --- TEXTO BÍBLICO --- */
         .cita-biblica {
-            padding: 40px 30px; background-color: #fff;
-            font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #555;
-            line-height: 1.8;
+            padding: 50px 30px; background: white;
+            font-family: 'Playfair Display', serif; font-style: italic; color: #555; font-size: 1.1rem;
         }
 
-        /* --- DETALLES --- */
-        .seccion { padding: 50px 20px; border-bottom: 1px solid #eee; }
-        .titulo-seccion {
-            font-family: 'Playfair Display', serif; font-size: 1.8rem;
-            margin-bottom: 10px; color: #222;
-        }
-        .direccion { display: block; margin: 15px 0; font-weight: 500; color: #333; }
+        /* --- INFO EVENTOS --- */
+        .evento-sec { padding: 50px 20px; border-bottom: 1px solid #f0f0f0; }
+        .icono-dorado { font-size: 2rem; color: var(--color-dorado); margin-bottom: 15px; }
+        .titulo-evento { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 10px 0; }
+        .dir-evento { display: block; margin: 15px 0; color: #555; line-height: 1.6; }
         
-        /* Botones */
-        .btn {
-            display: inline-block; padding: 12px 25px;
-            border: 1px solid #333; color: #333; text-decoration: none;
-            text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px;
-            margin-top: 10px; transition: 0.3s;
+        .btn-mapa {
+            display: inline-block; padding: 10px 25px; border: 1px solid #444; color: #444;
+            text-decoration: none; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px;
+            transition: 0.3s;
         }
-        .btn:hover { background: #333; color: white; }
+        .btn-mapa:hover { background: #444; color: white; }
 
+        /* --- RSVP & MÚSICA --- */
+        .rsvp-area { background: #222; color: white; padding: 60px 20px; }
         .btn-whatsapp {
-            background-color: #25D366; border: none; color: white;
-            padding: 15px 30px; border-radius: 50px; font-weight: bold;
-            text-decoration: none; display: inline-block; margin-top: 20px;
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            background: #25D366; color: white; padding: 15px 40px; border-radius: 50px;
+            text-decoration: none; font-weight: bold; display: inline-block; margin-top: 25px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
         }
-
-        /* Música flotante */
-        .music-btn {
-            position: fixed; bottom: 20px; right: 20px;
-            width: 50px; height: 50px; background: white; border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;
-            cursor: pointer; z-index: 100; font-size: 1.2rem;
+        
+        .music-float {
+            position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px;
+            background: white; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 100;
+            border: 1px solid #eee;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <header>
-            <p class="fecha-top">20 . 04 . 2026</p>
-            <h1 class="nombres">Josías<br>&<br>Naomi</h1>
-            
-            <img src="boda.jpeg" alt="Josías y Naomi" class="foto-principal">
+        <img src="flor1.png" class="flor-decorativa flor-arriba-izq" alt="">
+        <img src="flor2.png" class="flor-decorativa flor-abajo-der" alt="">
 
-            <div id="cuenta-regresiva">
-                <div><span class="numero" id="dias">00</span><span class="etiqueta">Días</span></div>
-                <div><span class="numero" id="horas">00</span><span class="etiqueta">Hs</span></div>
-                <div><span class="numero" id="minutos">00</span><span class="etiqueta">Min</span></div>
-                <div><span class="numero" id="segundos">00</span><span class="etiqueta">Seg</span></div>
+        <header>
+            <p class="bendicion">
+                Con la bendición de nuestro maravilloso Dios Jehová<br>
+                y la aprobación de nuestros padres:
+            </p>
+
+            <div class="padres-grid">
+                <div class="padres-col">
+                    <h3>Del Novio</h3>
+                    <p>Javier Arturo Mendoza Chalán</p>
+                    <p>Socorro Aponte Orosco</p>
+                </div>
+                <div class="padres-col">
+                    <h3>De la Novia</h3>
+                    <p>Agustin Libia Ticliahuanca</p>
+                    <p>Noemi Esquen Ordoñez</p>
+                </div>
+            </div>
+
+            <h1 class="nombres-grandes">Josías<br>&<br>Naomi</h1>
+
+            <div class="fecha-destacada">
+                <div class="dia-gigante">20 de Abril</div>
+                <div class="anio-gigante">2026</div>
+                <div class="hora-gigante">10:30 AM</div>
+            </div>
+
+            <img src="boda.jpeg" class="foto-portada" alt="Josías y Naomi">
+
+            <div id="timer">
+                <div class="time-box"><span class="time-num" id="dias">0</span><span class="time-label">Días</span></div>
+                <div class="time-box"><span class="time-num" id="horas">0</span><span class="time-label">Hs</span></div>
+                <div class="time-box"><span class="time-num" id="minutos">0</span><span class="time-label">Min</span></div>
+                <div class="time-box"><span class="time-num" id="segundos">0</span><span class="time-label">Seg</span></div>
             </div>
         </header>
 
-        <section class="galeria-section">
-            <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 20px;">Nuestra Historia</p>
-            <div class="galeria-grid">
-                <img src="foto1.jpeg" alt="Foto 1">
-                <img src="foto2.jpeg" alt="Foto 2">
-                <img src="foto3.jpeg" alt="Foto 3">
-                <img src="foto4.jpeg" alt="Foto 4">
-            </div>
-        </section>
-
         <div class="cita-biblica">
             "Mejores son dos que uno solo (...) Y es que, si uno de ellos cae, el otro puede ayudar a su compañero a levantarse. Y una cuerda triple no se rompe fácilmente."
-            <br><br><span style="font-size: 0.9rem; color: #C5A059;">Eclesiastés 4:9, 10, 12</span>
+            <br><br><span style="color: var(--color-dorado); font-size: 0.9rem;">Eclesiastés 4:9, 10, 12</span>
         </div>
 
-        <section class="seccion">
-            <h2 class="titulo-seccion">Consejo Bíblico Matrimonial</h2>
-            <p>10:30 AM</p>
-            <span class="direccion">Salón del Reino "Los Amautas"<br>Calle Inca Yupanqui 773, La Victoria</span>
-            <a href="https://www.google.com/maps/search/?api=1&query=Calle+Inca+Yupanqui+773+La+Victoria" target="_blank" class="btn">
-                <i class="fas fa-map-marker-alt"></i> Ver Mapa
+        <section class="evento-sec">
+            <i class="fas fa-book-open icono-dorado"></i> <h2 class="titulo-evento">Consejo Bíblico Matrimonial</h2>
+            <span class="dir-evento">
+                Salón del Reino de la Congregación "Los Amautas"<br>
+                <strong>Amaru Inca Yupanqui 751</strong>, La Victoria
+            </span>
+            <a href="https://www.google.com/maps/search/?api=1&query=Amaru+Inca+Yupanqui+751+La+Victoria" target="_blank" class="btn-mapa">
+                Ver Ubicación
             </a>
         </section>
 
-        <section class="seccion" style="background-color: #fbfbfb;">
-            <h2 class="titulo-seccion">Recepción</h2>
-            <p>A continuación de la ceremonia</p>
-            <span class="direccion">Mr. Will Campestre<br>Prolongación Saenz Peña y Calle España, Monsefú</span>
-            <a href="https://www.google.com/maps/search/?api=1&query=Mr+Will+Campestre+Monsefu" target="_blank" class="btn">
-                <i class="fas fa-glass-cheers"></i> Ver Mapa
+        <section class="evento-sec" style="background: #fafbf5;">
+            <i class="fas fa-glass-cheers icono-dorado"></i> <h2 class="titulo-evento">Recepción</h2>
+            <span class="dir-evento">
+                Mr. Will Campestre<br>
+                Prolongación Saenz Peña y Calle España, Monsefú
+            </span>
+            <a href="https://www.google.com/maps/search/?api=1&query=Mr+Will+Campestre+Monsefu" target="_blank" class="btn-mapa">
+                Ver Ubicación
             </a>
         </section>
 
-        <section class="seccion">
+        <section class="galeria-container">
+            <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 20px; color: #444;">Nuestra Historia</h3>
+            <div class="galeria-grid">
+                <img src="foto1.jpeg" alt="Momento 1">
+                <img src="foto2.jpeg" alt="Momento 2">
+                <img src="foto3.jpeg" alt="Momento 3">
+                <img src="foto4.jpeg" alt="Momento 4">
+                <img src="foto5.jpeg" alt="Momento 5" class="foto-ancha"> <img src="foto6.jpeg" alt="Momento 6">
+                <img src="foto7.jpeg" alt="Momento 7">
+                <img src="foto8.jpeg" alt="Momento 8">
+                <img src="foto9.jpeg" alt="Momento 9">
+                <img src="foto10.jpeg" alt="Momento 10" class="foto-ancha"> </div>
+        </section>
+
+        <section class="evento-sec">
             <div style="margin-bottom: 40px;">
-                <i class="fas fa-user-tie" style="font-size: 1.5rem; color: #C5A059; margin-bottom: 10px;"></i>
-                <h3 style="font-family: 'Playfair Display', serif; margin: 5px 0;">Código de Vestimenta</h3>
+                <i class="fas fa-user-tie" style="color: var(--color-dorado); font-size: 1.5rem;"></i>
+                <h3 style="font-family: 'Playfair Display', serif; margin: 10px 0;">Código de Vestimenta</h3>
                 <p>Formal de Día</p>
             </div>
-            
             <div>
-                <i class="fas fa-gift" style="font-size: 1.5rem; color: #C5A059; margin-bottom: 10px;"></i>
-                <h3 style="font-family: 'Playfair Display', serif; margin: 5px 0;">Regalos</h3>
+                <i class="fas fa-gift" style="color: var(--color-dorado); font-size: 1.5rem;"></i>
+                <h3 style="font-family: 'Playfair Display', serif; margin: 10px 0;">Regalos</h3>
                 <p style="font-size: 0.9rem; color: #666; max-width: 400px; margin: auto;">
                     Su presencia es nuestro mejor regalo. Si desean tener un detalle con nosotros, dispondremos de un buzón de sobres en la recepción.
                 </p>
             </div>
         </section>
 
-        <section class="seccion" style="background-color: #333; color: white;">
-            <h2 class="titulo-seccion" style="color: white;">Confirmación</h2>
-            <p style="color: #ccc;">Esperamos contar contigo.</p>
+        <div class="rsvp-area">
+            <h2 style="font-family: 'Playfair Display', serif;">Confirmación</h2>
+            <p style="color: #bbb;">Por favor confirmar asistencia antes del evento.</p>
             <a href="https://wa.me/51992926660?text=Hola%20Josías%20y%20Naomi,%20confirmo%20mi%20asistencia%20a%20su%20boda.%20¡Muchas%20felicidades!" class="btn-whatsapp" target="_blank">
-                <i class="fab fa-whatsapp"></i> Confirmar Asistencia
+                <i class="fab fa-whatsapp"></i> Enviar Mensaje a WhatsApp
             </a>
-        </section>
+        </div>
 
-        <div class="music-btn" onclick="toggleMusic()">🎵</div>
+        <div class="music-float" onclick="toggleMusic()">🎵</div>
         <audio id="player" loop>
             <source src="musica.mp3" type="audio/mpeg">
         </audio>
-
     </div>
 
     <script>
-        // --- FECHA CORRECTA: 20 de Abril 2026, 10:30 AM ---
+        // --- FECHA BODA: 20 ABRIL 2026 10:30 AM ---
         const fechaBoda = new Date("April 20, 2026 10:30:00").getTime();
 
         const x = setInterval(function() {
