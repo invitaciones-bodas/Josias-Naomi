@@ -12,7 +12,7 @@
         body { font-family: 'Montserrat', sans-serif; background-color: var(--fondo); color: var(--color-texto); margin: 0; padding: 0; text-align: center; }
         .container { max-width: 600px; margin: auto; background: white; position: relative; overflow-x: hidden; padding-bottom: 50px; }
 
-        /* TRUCO FLORES */
+        /* EFECTO FLORES INVISIBLES */
         .flor { position: absolute; z-index: 5; pointer-events: none; mix-blend-mode: multiply; }
         .flor-esquina { top: -10px; left: -20px; width: 180px; }
         .flor-centro { position: relative; width: 120px; margin: 0 auto; display: block; mix-blend-mode: multiply; }
@@ -21,9 +21,9 @@
         .nuestra-boda { font-family: 'Great Vibes', cursive; font-size: 2.2rem; color: #888; margin-bottom: 20px; }
         
         /* NOMBRES VERTICALES */
-        .nombres-container { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: #222; line-height: 1.2; margin: 20px 0; font-weight: 700; }
+        .nombres-container { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: #222; line-height: 1.1; margin: 20px 0; font-weight: 700; }
         .nombres-container span { display: block; }
-        .ampersand { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: var(--color-dorado); margin: 10px 0; }
+        .ampersand { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: var(--color-dorado); margin: 5px 0; }
 
         #timer { display: flex; justify-content: center; gap: 8px; margin: 30px 0; }
         .box { background: #fff; border: 1px solid #f0e6d2; padding: 10px; min-width: 50px; border-radius: 4px; }
@@ -54,7 +54,7 @@
         .music-float { position: fixed; bottom: 20px; right: 20px; width: 45px; height: 45px; background: white; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 100; border: 1px solid #ddd; }
     </style>
 </head>
-<body onclick="playMusic()" onscroll="playMusic()">
+<body>
 
     <div class="container">
         <img src="flor1.png" class="flor flor-esquina">
@@ -106,20 +106,20 @@
         <div class="fecha-gr">20 de Abril</div>
         <div class="hora-gigante">10:30 AM</div>
 
-        <p style="font-family:'Great Vibes'; font-size:1.8rem; padding: 20px;">"El mejor tipo de amor es el que despierta el alma y nos hace aspirar más."</p>
+        <p style="font-family:'Great Vibes'; font-size:1.8rem; padding: 20px;">"Bajo la luz del día y con el corazón lleno de esperanza, unimos nuestras vidas."</p>
 
         <section class="evento">
             <i class="fas fa-book-open" style="color:var(--color-dorado); font-size:2rem;"></i>
             <h2 class="titulo-evento">Consejo Bíblico Matrimonial</h2>
             <span class="dir-evento">Salón del Reino "Los Amautas"<br><strong>Amaru Inca Yupanqui 735</strong>, La Victoria</span>
-            <a href="https://maps.app.goo.gl/uXz6T1m7N6S2" target="_blank" class="btn-mapa">VER DIRECCIÓN</a>
+            <a href="https://maps.google.com/?q=Calle+Amaru+Inca+Yupanqui+735+La+Victoria" target="_blank" class="btn-mapa">VER DIRECCIÓN</a>
         </section>
 
         <section class="evento" style="background:#fafbf5;">
             <i class="fas fa-glass-cheers" style="color:var(--color-dorado); font-size:2rem;"></i>
             <h2 class="titulo-evento">Recepción</h2>
             <span class="dir-evento">Mr. Will Campestre<br>Prolongación Saenz Peña y calle España, Monsefú</span>
-            <a href="https://maps.app.goo.gl/uXz6T1m7N6S2" target="_blank" class="btn-mapa">VER DIRECCIÓN</a>
+            <a href="https://maps.google.com/?q=Mr.+Will+Campestre+Monsefu" target="_blank" class="btn-mapa">VER DIRECCIÓN</a>
         </section>
 
         <section style="padding:20px;">
@@ -146,13 +146,13 @@
         <div class="rsvp">
             <h2>Confirmación</h2>
             <div class="botones-wa">
-                <a href="https://wa.me/51992926660" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Confirmar a la Novia</a>
-                <a href="https://wa.me/51990907777" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Confirmar al Novio</a>
+                <a href="https://wa.me/51992926660?text=Hola%20Naomi,%20confirmo%20mi%20asistencia." class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Confirmar a la Novia</a>
+                <a href="https://wa.me/51990907777?text=Hola%20Josías,%20confirmo%20mi%20asistencia." class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Confirmar al Novio</a>
             </div>
         </div>
 
         <div class="music-float" onclick="toggleMusic()">🎵</div>
-        <audio id="player" loop><source src="musica.mp3" type="audio/mpeg"></audio>
+        <audio id="player" loop preload="auto"><source src="musica.mp3" type="audio/mpeg"></audio>
     </div>
 
     <script>
@@ -166,18 +166,25 @@
             document.getElementById("s").innerText = Math.floor((diff % (1000*60)) / 1000);
         }, 1000);
 
-        let musicStarted = false;
-        function playMusic() {
-            const p = document.getElementById("player");
-            if(!musicStarted) {
+        // LÓGICA DE MÚSICA AUTOMÁTICA
+        const p = document.getElementById("player");
+        let playAttempted = false;
+
+        function startMusic() {
+            if (!playAttempted) {
                 p.play().catch(() => {});
-                musicStarted = true;
+                playAttempted = true;
             }
         }
+
+        // Se activa al tocar, mover o hacer scroll
+        window.addEventListener('scroll', startMusic);
+        window.addEventListener('click', startMusic);
+        window.addEventListener('touchstart', startMusic);
+
         function toggleMusic() { 
-            const p = document.getElementById("player"); 
             p.paused ? p.play() : p.pause(); 
-            musicStarted = true;
+            playAttempted = true;
         }
     </script>
 </body>
