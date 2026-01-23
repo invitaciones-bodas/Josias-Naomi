@@ -4,224 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boda Josías & Naomi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* --- CARGA DE TUS TIPOGRAFÍAS PERSONALIZADAS --- */
-        @font-face {
-            font-family: 'Rosellinda';
-            src: url('Rosellinda Alyamore.otf') format('opentype');
-        }
-
-        @font-face {
-            font-family: 'CalifornianFB';
-            src: url('CALIFB.TTF') format('truetype');
-        }
-
-        :root { 
-            --color-texto: #444; 
-            --color-dorado: #C5A059; 
-            --fondo: #fffbf7; 
-        }
-
-        body { 
-            font-family: 'CalifornianFB', serif; /* Aplicado a todo el texto */
-            background-color: var(--fondo); 
-            color: var(--color-texto); 
-            margin: 0; padding: 0; 
-            text-align: center; 
-        }
-
+        @font-face { font-family: 'Rosellinda'; src: url('Rosellinda Alyamore.otf') format('opentype'); }
+        @font-face { font-family: 'CalifornianFB'; src: url('CALIFB.TTF') format('truetype'); }
+        :root { --color-texto: #444; --color-dorado: #C5A059; --fondo: #fffbf7; }
+        body { font-family: 'CalifornianFB', serif; background-color: var(--fondo); color: var(--color-texto); margin: 0; padding: 0; text-align: center; }
         .container { max-width: 600px; margin: auto; background: white; position: relative; overflow-x: hidden; padding-bottom: 50px; border: 1px solid #f2ece1; }
-
-        /* DECORACIÓN FLORAL */
         .flor-fix { position: absolute; z-index: 5; pointer-events: none; mix-blend-mode: multiply; }
         .flor1 { top: -20px; left: -30px; width: 180px; }
         .flor2 { position: relative; width: 130px; margin: 10px auto; display: block; mix-blend-mode: multiply; }
         .flor3 { width: 150px; margin: 20px auto; display: block; mix-blend-mode: multiply; }
         .flor6 { width: 140px; margin: 20px auto; display: block; mix-blend-mode: multiply; transform: rotate(180deg); }
-
         header { padding: 70px 20px 20px; }
-        
-        .nuestra-boda { 
-            font-family: 'Rosellinda', cursive; 
-            font-size: 3rem; 
-            color: #888; 
-            margin-bottom: 0; 
-        }
-        
-        /* NOMBRES DE LOS NOVIOS CON TU FUENTE */
-        .nombres-container { 
-            font-family: 'Rosellinda', cursive; 
-            font-size: 4.5rem; 
-            color: #222; 
-            line-height: 0.9; 
-            margin: 20px 0; 
-            font-weight: normal; 
-        }
+        .nuestra-boda { font-family: 'Rosellinda', cursive; font-size: 3rem; color: #888; margin-bottom: 0; }
+        .nombres-container { font-family: 'Rosellinda', cursive; font-size: 4.5rem; color: #222; line-height: 0.9; margin: 20px 0; }
         .nombres-container span { display: block; }
-        .ampersand { font-size: 3rem; color: var(--color-dorado); margin: 5px 0; }
-
+        .ampersand { font-size: 3.5rem; color: var(--color-dorado); }
         #timer { display: flex; justify-content: center; gap: 8px; margin: 30px 0; }
         .box { background: #fff; border: 1px solid #f0e6d2; padding: 10px; min-width: 50px; border-radius: 4px; }
         .num { font-size: 1.4rem; display: block; color: var(--color-dorado); font-weight: bold; }
         .lab { font-size: 0.6rem; text-transform: uppercase; color: #999; }
-
         .foto-principal { width: 92%; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); margin-bottom: 20px; }
-
         .seccion-musica { padding: 20px; margin-bottom: 20px; }
         .titulo-musica { font-family: 'Rosellinda', cursive; font-size: 2.5rem; color: #888; margin-bottom: 15px; }
-        .btn-play-estilo { 
-            background: white; border: 2px solid var(--color-dorado); color: var(--color-dorado); 
-            padding: 12px 35px; border-radius: 50px; font-size: 1rem; font-weight: bold;
-            cursor: pointer; display: inline-flex; align-items: center; gap: 12px;
-        }
-
+        .btn-play-estilo { background: white; border: 2px solid var(--color-dorado); color: var(--color-dorado); padding: 12px 35px; border-radius: 50px; font-size: 1rem; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 12px; }
         .biblico { padding: 40px 25px; font-size: 1.3rem; line-height: 1.6; }
-        .pajaritos { color: var(--color-dorado); font-size: 1.8rem; margin: 15px 0; }
-
         .padres-sec { background: #fafafa; padding: 40px 10px; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
-        .padres-col h3 { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--color-dorado); margin-bottom: 10px; }
         .padres-col p { margin: 5px 0; font-size: 1.2rem; }
-
-        .nos-casamos { letter-spacing: 6px; color: #999; margin-top: 50px; font-size: 0.9rem; font-weight: bold; }
-        .fecha-gr { font-size: 3.5rem; font-weight: bold; margin: 5px 0; color: #222; }
-        
+        .fecha-gr { font-size: 3.5rem; font-weight: bold; margin: 5px 0; }
         .evento { padding: 50px 20px; border-bottom: 1px solid #f9f9f9; }
-        .icono-dorado { font-size: 2.2rem; color: var(--color-dorado); margin-bottom: 15px; }
         .btn-mapa { display: inline-block; padding: 12px 30px; border: 1px solid #444; color: #444; text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; margin-top: 15px; }
-
         .galeria-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 20px; }
-        .galeria-grid img { width: 100%; height: 200px; object-fit: cover; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-
+        .galeria-grid img { width: 100%; height: 200px; object-fit: cover; border-radius: 4px; }
         .detalles-sec { padding: 50px 30px; background: #fffdfa; }
         .caja-detalle { margin-bottom: 40px; }
-        .caja-detalle h3 { font-size: 1.8rem; margin-bottom: 10px; color: #333; }
-        .caja-detalle p { font-size: 1.1rem; line-height: 1.6; color: #666; max-width: 450px; margin: auto; }
-
         .rsvp { background: #222; color: white; padding: 60px 20px; }
         .frase-final { font-family: 'Rosellinda', cursive; font-size: 3rem; color: var(--color-dorado); margin-bottom: 25px; display: block; }
-        .btn-wa { background: #25D366; color: white; padding: 16px; border-radius: 50px; text-decoration: none; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 10px; margin: 15px auto; width: 85%; max-width: 320px; font-size: 1.05rem; }
+        .btn-wa { background: #25D366; color: white; padding: 16px; border-radius: 50px; text-decoration: none; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 10px; margin: 15px auto; width: 85%; max-width: 320px; }
     </style>
 </head>
 <body>
-
     <div class="container">
         <img src="flor1.png" class="flor-fix flor1">
-
         <header>
             <p class="nuestra-boda">Nuestra Boda</p>
             <img src="flor2.png" class="flor2">
-            
-            <h1 class="nombres-container">
-                <span>Josías</span>
-                <span class="ampersand">&</span>
-                <span>Naomi</span>
-            </h1>
-
+            <h1 class="nombres-container"><span>Josías</span><span class="ampersand">&</span><span>Naomi</span></h1>
             <div id="timer">
                 <div class="box"><span class="num" id="d">0</span><span class="lab">Días</span></div>
                 <div class="box"><span class="num" id="h">0</span><span class="lab">Hs</span></div>
                 <div class="box"><span class="num" id="m">0</span><span class="lab">Min</span></div>
                 <div class="box"><span class="num" id="s">0</span><span class="lab">Seg</span></div>
             </div>
-
             <img src="boda.jpeg" class="foto-principal">
-            
             <div class="seccion-musica">
                 <p class="titulo-musica">Nuestra música</p>
-                <button class="btn-play-estilo" onclick="toggleMusic()">
-                    <i id="play-icon" class="fas fa-play"></i> REPRODUCIR CANCIÓN
-                </button>
+                <button class="btn-play-estilo" onclick="toggleMusic()"><i id="play-icon" class="fas fa-play"></i> REPRODUCIR CANCIÓN</button>
             </div>
         </header>
 
         <div class="biblico">
             "Mejores son dos que uno solo (...) Y es que, si uno de ellos cae, el otro puede ayudar a su compañero a levantarse. Y una cuerda triple no se rompe fácilmente."
-            <br><span style="color:var(--color-dorado); font-weight:bold; font-size:1.1rem;">Eclesiastés 4:9, 10, 12</span>
-            
-            <div class="pajaritos">
-                <i class="fas fa-dove"></i>
-                <i class="fas fa-dove" style="transform: scaleX(-1); display:inline-block;"></i>
-            </div>
+            <br><span style="color:var(--color-dorado); font-weight:bold;">Eclesiastés 4:9, 10, 12</span>
         </div>
 
         <section class="padres-sec">
-            <div class="padres-col">
-                <h3>Padres de la Novia</h3>
-                <p>Agustín Libia Ticliahuanca</p>
-                <p>Noemí Esquén Ordoñez</p>
-            </div>
-            <div class="padres-col">
-                <h3>Padres del Novio</h3>
-                <p>Javier Arturo Mendoza Chalán</p>
-                <p>Socorro Aponte Orosco</p>
-            </div>
+            <div class="padres-col"><h3>Padres de la Novia</h3><p>Agustín Libia Ticliahuanca</p><p>Noemí Esquén Ordoñez</p></div>
+            <div class="padres-col"><h3>Padres del Novio</h3><p>Javier Arturo Mendoza Chalán</p><p>Socorro Aponte Orosco</p></div>
         </section>
 
         <img src="flor3.png" class="flor3">
-
-        <p class="nos-casamos">NOS CASAMOS</p>
+        <p style="letter-spacing: 6px; font-weight: bold;">NOS CASAMOS</p>
         <div class="fecha-gr">20 de Abril</div>
-        <div class="hora-gigante" style="font-size: 1.5rem;">11:00 AM</div>
+        <div style="font-size: 1.5rem;">11:00 AM</div>
 
         <section class="evento">
-            <i class="fas fa-book-open icono-dorado"></i>
-            <h2 style="font-size:1.8rem;">Consejo Bíblico Matrimonial</h2>
-            <span style="display:block; margin:10px 0; font-style:italic; color:#555;">
-                Salón del Reino de Los Testigos de Jehová<br>
-                <strong>Amaru Inca Yupanqui 736</strong>, La Victoria
-            </span>
-            <a href="https://maps.google.com/?q=Amaru+Inca+Yupanqui+736+La+Victoria+Lambayeque" target="_blank" class="btn-mapa">VER UBICACIÓN</a>
+            <i class="fas fa-book-open" style="font-size: 2.2rem; color: var(--color-dorado);"></i>
+            <h2>Consejo Bíblico Matrimonial</h2>
+            <p>Salón del Reino de Los Testigos de Jehová<br><strong>Amaru Inca Yupanqui 736</strong>, La Victoria</p>
+            <a href="https://maps.google.com" target="_blank" class="btn-mapa">VER UBICACIÓN</a>
         </section>
 
-        <section class="evento" style="background:#fafbf5;">
-            <i class="fas fa-glass-cheers icono-dorado"></i>
-            <h2 style="font-size:1.8rem;">Recepción</h2>
-            <span style="display:block; margin:10px 0; font-style:italic; color:#555;">
-                Mr. Will Campestre<br>
-                Prolongación Saenz Peña y calle España, Monsefú
-            </span>
-            <a href="https://maps.google.com/?q=Mr.+Will+Campestre+Monsefu" target="_blank" class="btn-mapa">VER UBICACIÓN</a>
-        </section>
-
-        <section style="padding:40px 20px;">
-            <h3 style="margin-bottom:20px; font-size: 1.8rem;">Galería</h3>
+        <section style="padding: 40px 20px;">
+            <h3>Galería</h3>
             <div class="galeria-grid">
-                <img src="foto1.jpeg" alt="Foto 1"><img src="foto2.jpeg" alt="Foto 2">
-                <img src="foto3.jpeg" alt="Foto 3"><img src="foto4.jpeg" alt="Foto 4">
+                <img src="foto1.jpeg"><img src="foto2.jpeg">
+                <img src="foto3.jpeg"><img src="foto4.jpeg">
             </div>
         </section>
 
         <section class="detalles-sec">
-            <div class="caja-detalle">
-                <i class="fas fa-user-tie icono-dorado"></i>
-                <h3>Código de Vestimenta</h3>
-                <p>Formal de Día</p>
-            </div>
-            
-            <div class="caja-detalle">
-                <i class="fas fa-gift icono-dorado"></i>
-                <h3>Recepción de Regalos</h3>
-                <p>
-                    El regalo es opcional, la asistencia es obligatoria, pero si deseas tener un detalle con nosotros, te agradecemos lo hagas llegar a:<br>
-                    <strong>Calle Antenor Orrego 1351 - La Victoria - Chiclayo</strong>
-                </p>
-            </div>
+            <div class="caja-detalle"><h3>Código de Vestimenta</h3><p>Formal de Día</p></div>
+            <div class="caja-detalle"><h3>Recepción de Regalos</h3><p>El regalo es opcional, la asistencia es obligatoria. Si deseas tener un detalle: <strong>Calle Antenor Orrego 1351 - Chiclayo</strong></p></div>
         </section>
 
         <img src="flor6.png" class="flor6">
 
         <div class="rsvp">
             <span class="frase-final">¡Vas a ser parte de nuestra historia de amor!</span>
-            <h2 style="margin-bottom:10px; font-size: 2rem;">Confirmación</h2>
+            <h2>Confirmación</h2>
             <div class="botones-wa">
-                <a href="https://wa.me/51992926660?text=Hola%20Naomi,%20confirmo%20mi%20asistencia%20a%20tu%20boda.%20¡Muchas%20felicidades!" class="btn-wa" target="_blank">
-                    <i class="fab fa-whatsapp"></i> Confirmar a la Novia
-                </a>
-                <a href="https://wa.me/51990907777?text=Hola%20Josías,%20confirmo%20mi%20asistencia%20a%20vuestra%20boda.%20¡Muchas%20felicidades!" class="btn-wa" target="_blank">
-                    <i class="fab fa-whatsapp"></i> Confirmar al Novio
-                </a>
+                <a href="https://wa.me/51992926660" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Confirmar a la Novia</a>
+                <a href="https://wa.me/51990907777" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Confirmar al Novio</a>
             </div>
         </div>
 
@@ -231,15 +118,20 @@
     <script>
         const audio = document.getElementById("player");
         const playIcon = document.getElementById("play-icon");
-
         function toggleMusic() {
-            if (audio.paused) {
-                audio.play();
-                playIcon.classList.replace("fa-play", "fa-pause");
-            } else {
-                audio.pause();
-                playIcon.classList.replace("fa-pause", "fa-play");
-            }
+            if (audio.paused) { audio.play(); playIcon.classList.replace("fa-play", "fa-pause"); }
+            else { audio.pause(); playIcon.classList.replace("fa-pause", "fa-play"); }
         }
-
-        const target = new Date("April 20, 202
+        const target = new Date("April 20, 2026 11:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = target - now;
+            if (diff < 0) return;
+            document.getElementById("d").innerText = Math.floor(diff / (1000*60*60*24));
+            document.getElementById("h").innerText = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+            document.getElementById("m").innerText = Math.floor((diff % (1000*60*60)) / (1000*60));
+            document.getElementById("s").innerText = Math.floor((diff % (1000*60)) / 1000);
+        }, 1000);
+    </script>
+</body>
+</html>
