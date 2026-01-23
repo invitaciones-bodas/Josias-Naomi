@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boda Josías & Naomi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* --- ESTILO INGENIERÍA: FLORAL & ELEGANT --- */
+        /* --- ESTILO DE INGENIERÍA: CLEAN & ROMANTIC --- */
         :root {
             --color-texto: #444; 
             --color-dorado: #C5A059;
@@ -30,86 +30,88 @@
             position: relative;
             border-left: 1px solid #f7f0e6;
             border-right: 1px solid #f7f0e6;
+            padding-bottom: 40px;
         }
 
-        /* --- DECORACIÓN FLORAL --- */
-        /* Las flores flotan sobre el diseño */
+        /* --- FLORES CON TRUCO "INVISIBLE" --- */
         .flor-decorativa {
-            position: absolute; width: 180px; z-index: 10; pointer-events: none; opacity: 0.95;
+            position: absolute; width: 150px; z-index: 10; pointer-events: none;
+            /* ESTO BORRA EL FONDO BLANCO DE LAS FLORES */
+            mix-blend-mode: multiply; 
         }
-        .flor-arriba-izq { top: -30px; left: -40px; transform: rotate(-10deg); }
-        .flor-abajo-der { bottom: -30px; right: -40px; transform: rotate(180deg); }
+        /* Flor 1: Arriba a la izquierda */
+        .flor-esquina { top: -20px; left: -30px; transform: rotate(-10deg); width: 180px; }
+        /* Flor cerca de nombres (usaré flor2) */
+        .flor-nombres { 
+            position: relative; width: 100px; margin: -10px auto 10px; display: block;
+            mix-blend-mode: multiply; 
+        }
 
-        /* --- ENCABEZADO Y PADRES --- */
-        header { padding: 60px 20px 20px; position: relative; }
-        
-        .bendicion {
+        /* --- ENCABEZADO --- */
+        header { padding: 50px 20px 20px; position: relative; }
+
+        .titulo-top {
             font-family: 'Great Vibes', cursive;
-            font-size: 2rem; color: #777; line-height: 1.2; margin-bottom: 30px;
+            font-size: 2.5rem; color: #888; margin-bottom: 5px; line-height: 1;
         }
-        
-        .padres-grid {
-            display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;
-            font-family: 'Playfair Display', serif; font-size: 0.9rem; margin-bottom: 40px;
-        }
-        .padres-col h3 {
-            font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; 
-            color: var(--color-dorado); margin-bottom: 8px; border-bottom: 1px solid #eee; padding-bottom: 5px;
-        }
-        .padres-col p { margin: 3px 0; color: #444; }
 
-        /* --- NOMBRES Y FECHA --- */
         .nombres-grandes {
             font-family: 'Playfair Display', serif;
-            font-size: 3.8rem; color: #222;
-            line-height: 1; margin: 20px 0;
-        }
-        
-        .fecha-destacada {
-            border-top: 2px solid var(--color-dorado);
-            border-bottom: 2px solid var(--color-dorado);
-            padding: 15px 0; margin: 30px auto; width: 80%;
-        }
-        .dia-gigante { font-family: 'Playfair Display', serif; font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px; }
-        .anio-gigante { font-size: 1.2rem; letter-spacing: 8px; color: #666; margin-top: 5px; }
-        .hora-gigante { font-size: 1rem; margin-top: 5px; color: #888; font-family: 'Montserrat', sans-serif; }
-
-        .foto-portada {
-            width: 90%; height: auto; border: 5px solid white; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-bottom: 30px;
-            transform: rotate(-1deg);
+            font-size: 3.5rem; color: #222;
+            line-height: 1.1; margin: 10px 0 20px;
         }
 
         /* --- CRONÓMETRO --- */
-        #timer { display: flex; justify-content: center; gap: 10px; margin: 40px 0; }
-        .time-box { background: #fff; border: 1px solid #eee; padding: 10px; min-width: 55px; }
-        .time-num { font-family: 'Playfair Display', serif; font-size: 1.5rem; display: block; color: #333; }
+        #timer { display: flex; justify-content: center; gap: 10px; margin: 20px 0 40px; }
+        .time-box { background: #fff; border: 1px solid #eee; padding: 8px; min-width: 50px; }
+        .time-num { font-family: 'Playfair Display', serif; font-size: 1.3rem; display: block; color: var(--color-dorado); font-weight: bold; }
         .time-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; color: #999; }
 
-        /* --- GALERÍA 10 FOTOS --- */
-        .galeria-container { background: #fafafa; padding: 40px 10px; }
-        .galeria-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+        /* --- FOTO BODA --- */
+        .foto-boda {
+            width: 90%; height: auto; border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 30px;
         }
-        .galeria-grid img {
-            width: 100%; height: 200px; object-fit: cover; border-radius: 3px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s;
-        }
-        .galeria-grid img:hover { transform: scale(1.02); z-index: 2; }
-        /* Hacemos que algunas fotos ocupen 2 espacios para que se vea dinámico */
-        .foto-ancha { grid-column: span 2; height: 300px !important; }
 
-        /* --- TEXTO BÍBLICO --- */
-        .cita-biblica {
-            padding: 50px 30px; background: white;
-            font-family: 'Playfair Display', serif; font-style: italic; color: #555; font-size: 1.1rem;
+        /* --- TEXTOS BÍBLICOS Y AMOR --- */
+        .bloque-biblico { padding: 30px 20px; }
+        .texto-biblico {
+            font-family: 'Playfair Display', serif; font-style: italic; color: #555; font-size: 1.1rem; line-height: 1.6;
         }
+        .cita { color: var(--color-dorado); font-size: 0.9rem; font-weight: bold; margin-top: 10px; display: block; }
+        
+        .iconos-pajaritos { margin: 20px 0; color: var(--color-dorado); font-size: 1.5rem; }
+        /* Truco para "besar" los picos: voltear el segundo pájaro */
+        .pajaro-flip { transform: scaleX(-1); display: inline-block; }
+
+        .frase-amor {
+            font-family: 'Great Vibes', cursive; font-size: 1.8rem; color: #666; 
+            margin: 40px 20px; line-height: 1.4;
+        }
+
+        /* --- PADRES --- */
+        .padres-section { margin: 30px 0; background-color: #fafafa; padding: 30px 10px; }
+        .padres-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .padres-col h3 {
+            font-family: 'Montserrat', sans-serif; font-size: 0.7rem; text-transform: uppercase; 
+            letter-spacing: 2px; color: var(--color-dorado); margin-bottom: 10px;
+        }
+        .padres-col p { font-family: 'Playfair Display', serif; margin: 4px 0; font-size: 0.95rem; color: #444; }
+
+        /* --- NOS CASAMOS Y FECHA --- */
+        .nos-casamos {
+            font-size: 1rem; letter-spacing: 5px; text-transform: uppercase; margin-top: 40px; color: #888;
+        }
+        .fecha-gigante {
+            font-family: 'Playfair Display', serif; font-size: 3rem; color: #222; margin: 10px 0; font-weight: 700;
+        }
+        .hora-gigante { font-size: 1.2rem; color: #666; margin-bottom: 30px; }
 
         /* --- INFO EVENTOS --- */
-        .evento-sec { padding: 50px 20px; border-bottom: 1px solid #f0f0f0; }
+        .evento-sec { padding: 50px 20px; border-top: 1px solid #eee; }
         .icono-dorado { font-size: 2rem; color: var(--color-dorado); margin-bottom: 15px; }
-        .titulo-evento { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 10px 0; }
-        .dir-evento { display: block; margin: 15px 0; color: #555; line-height: 1.6; }
+        .titulo-evento { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin: 10px 0; }
+        .dir-evento { display: block; margin: 15px 0; color: #555; line-height: 1.6; font-style: italic; }
         
         .btn-mapa {
             display: inline-block; padding: 10px 25px; border: 1px solid #444; color: #444;
@@ -118,56 +120,43 @@
         }
         .btn-mapa:hover { background: #444; color: white; }
 
-        /* --- RSVP & MÚSICA --- */
-        .rsvp-area { background: #222; color: white; padding: 60px 20px; }
-        .btn-whatsapp {
-            background: #25D366; color: white; padding: 15px 40px; border-radius: 50px;
-            text-decoration: none; font-weight: bold; display: inline-block; margin-top: 25px;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        /* --- GALERÍA 4 FOTOS --- */
+        .galeria-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 20px;
         }
-        
+        .galeria-grid img {
+            width: 100%; height: 180px; object-fit: cover; border-radius: 3px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* --- RSVP BOTONES --- */
+        .rsvp-area { background: #333; color: white; padding: 50px 20px; }
+        .botones-whatsapp { display: flex; flex-direction: column; gap: 15px; align-items: center; margin-top: 20px; }
+        .btn-whatsapp {
+            background: #25D366; color: white; padding: 12px 30px; border-radius: 50px;
+            text-decoration: none; font-weight: bold; width: 80%; max-width: 300px;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
+        }
+
         .music-float {
             position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px;
             background: white; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 100;
-            border: 1px solid #eee;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="flor1.png" class="flor-decorativa flor-arriba-izq" alt="">
-        <img src="flor2.png" class="flor-decorativa flor-abajo-der" alt="">
+        <img src="flor1.png" class="flor-decorativa flor-esquina" alt="">
 
         <header>
-            <p class="bendicion">
-                Con la bendición de nuestro maravilloso Dios Jehová<br>
-                y la aprobación de nuestros padres:
-            </p>
+            <p class="titulo-top">Nuestra Boda</p>
+            
+            <img src="flor2.png" class="flor-nombres" alt="">
 
-            <div class="padres-grid">
-                <div class="padres-col">
-                    <h3>Del Novio</h3>
-                    <p>Javier Arturo Mendoza Chalán</p>
-                    <p>Socorro Aponte Orosco</p>
-                </div>
-                <div class="padres-col">
-                    <h3>De la Novia</h3>
-                    <p>Agustin Libia Ticliahuanca</p>
-                    <p>Noemi Esquen Ordoñez</p>
-                </div>
-            </div>
-
-            <h1 class="nombres-grandes">Josías<br>&<br>Naomi</h1>
-
-            <div class="fecha-destacada">
-                <div class="dia-gigante">20 de Abril</div>
-                <div class="anio-gigante">2026</div>
-                <div class="hora-gigante">10:30 AM</div>
-            </div>
-
-            <img src="boda.jpeg" class="foto-portada" alt="Josías y Naomi">
+            <h1 class="nombres-grandes">Josías & Naomi</h1>
 
             <div id="timer">
                 <div class="time-box"><span class="time-num" id="dias">0</span><span class="time-label">Días</span></div>
@@ -175,21 +164,51 @@
                 <div class="time-box"><span class="time-num" id="minutos">0</span><span class="time-label">Min</span></div>
                 <div class="time-box"><span class="time-num" id="segundos">0</span><span class="time-label">Seg</span></div>
             </div>
+
+            <img src="boda.jpeg" class="foto-boda" alt="Josías y Naomi">
         </header>
 
-        <div class="cita-biblica">
-            "Mejores son dos que uno solo (...) Y es que, si uno de ellos cae, el otro puede ayudar a su compañero a levantarse. Y una cuerda triple no se rompe fácilmente."
-            <br><br><span style="color: var(--color-dorado); font-size: 0.9rem;">Eclesiastés 4:9, 10, 12</span>
+        <div class="bloque-biblico">
+            <p class="texto-biblico">
+                "Mejores son dos que uno solo (...) Y es que, si uno de ellos cae, el otro puede ayudar a su compañero a levantarse. Y una cuerda triple no se rompe fácilmente."
+            </p>
+            <span class="cita">Eclesiastés 4:9, 10, 12</span>
+
+            <div class="iconos-pajaritos">
+                <i class="fas fa-dove"></i>
+                <i class="fas fa-dove pajaro-flip"></i> </div>
         </div>
+
+        <section class="padres-section">
+            <div class="padres-grid">
+                <div class="padres-col">
+                    <h3>Padres de la Novia</h3>
+                    <p>Agustin Libia Ticliahuanca</p>
+                    <p>Noemi Esquen Ordoñez</p>
+                </div>
+                <div class="padres-col">
+                    <h3>Padres del Novio</h3>
+                    <p>Javier Arturo Mendoza Chalán</p>
+                    <p>Socorro Aponte Orosco</p>
+                </div>
+            </div>
+        </section>
+
+        <p class="nos-casamos">NOS CASAMOS</p>
+        <div class="fecha-gigante">20 de Abril</div>
+        <div class="hora-gigante">10:30 AM</div>
+
+        <p class="frase-amor">
+            "El mejor tipo de amor es el que despierta el alma y nos hace aspirar más."
+        </p>
 
         <section class="evento-sec">
             <i class="fas fa-book-open icono-dorado"></i> <h2 class="titulo-evento">Consejo Bíblico Matrimonial</h2>
             <span class="dir-evento">
                 Salón del Reino de la Congregación "Los Amautas"<br>
-                <strong>Amaru Inca Yupanqui 751</strong>, La Victoria
-            </span>
+                <strong>Amaru Inca Yupanqui 735</strong>, La Victoria </span>
             <a href="https://www.google.com/maps/search/?api=1&query=Amaru+Inca+Yupanqui+751+La+Victoria" target="_blank" class="btn-mapa">
-                Ver Ubicación
+                <i class="fas fa-map-marker-alt"></i> Ver Dirección
             </a>
         </section>
 
@@ -200,22 +219,18 @@
                 Prolongación Saenz Peña y Calle España, Monsefú
             </span>
             <a href="https://www.google.com/maps/search/?api=1&query=Mr+Will+Campestre+Monsefu" target="_blank" class="btn-mapa">
-                Ver Ubicación
+                <i class="fas fa-map-marker-alt"></i> Ver Dirección
             </a>
         </section>
 
-        <section class="galeria-container">
-            <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 20px; color: #444;">Nuestra Historia</h3>
+        <section style="padding: 20px;">
+            <h3 style="font-family: 'Playfair Display', serif; color: #444; margin-bottom: 10px;">Galería</h3>
             <div class="galeria-grid">
-                <img src="foto1.jpeg" alt="Momento 1">
-                <img src="foto2.jpeg" alt="Momento 2">
-                <img src="foto3.jpeg" alt="Momento 3">
-                <img src="foto4.jpeg" alt="Momento 4">
-                <img src="foto5.jpeg" alt="Momento 5" class="foto-ancha"> <img src="foto6.jpeg" alt="Momento 6">
-                <img src="foto7.jpeg" alt="Momento 7">
-                <img src="foto8.jpeg" alt="Momento 8">
-                <img src="foto9.jpeg" alt="Momento 9">
-                <img src="foto10.jpeg" alt="Momento 10" class="foto-ancha"> </div>
+                <img src="foto1.jpeg" alt="Foto 1">
+                <img src="foto2.jpeg" alt="Foto 2">
+                <img src="foto3.jpeg" alt="Foto 3">
+                <img src="foto4.jpeg" alt="Foto 4">
+            </div>
         </section>
 
         <section class="evento-sec">
@@ -235,10 +250,17 @@
 
         <div class="rsvp-area">
             <h2 style="font-family: 'Playfair Display', serif;">Confirmación</h2>
-            <p style="color: #bbb;">Por favor confirmar asistencia antes del evento.</p>
-            <a href="https://wa.me/51992926660?text=Hola%20Josías%20y%20Naomi,%20confirmo%20mi%20asistencia%20a%20su%20boda.%20¡Muchas%20felicidades!" class="btn-whatsapp" target="_blank">
-                <i class="fab fa-whatsapp"></i> Enviar Mensaje a WhatsApp
-            </a>
+            <p style="color: #bbb; margin-bottom: 20px;">Por favor confirmar asistencia:</p>
+            
+            <div class="botones-whatsapp">
+                <a href="https://wa.me/51992926660?text=Hola%20Naomi,%20confirmo%20mi%20asistencia%20a%20su%20boda.%20¡Muchas%20felicidades!" class="btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Confirmar a la Novia
+                </a>
+                
+                <a href="https://wa.me/51990907777?text=Hola%20Josías,%20confirmo%20mi%20asistencia%20a%20su%20boda.%20¡Muchas%20felicidades!" class="btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Confirmar al Novio
+                </a>
+            </div>
         </div>
 
         <div class="music-float" onclick="toggleMusic()">🎵</div>
