@@ -5,27 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boda Josías & Naomi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         @font-face { font-family: 'Rosellinda'; src: url('Rosellinda Alyamore.otf') format('opentype'); }
         @font-face { font-family: 'CalifornianFB'; src: url('CALIFB.TTF') format('truetype'); }
+
         :root { --color-texto: #444; --color-dorado: #C5A059; --fondo: #fffbf7; }
         body { font-family: 'CalifornianFB', serif; background-color: var(--fondo); color: var(--color-texto); margin: 0; padding: 0; text-align: center; }
         .container { max-width: 600px; margin: auto; background: white; position: relative; overflow-x: hidden; padding-bottom: 50px; border: 1px solid #f2ece1; }
+
+        /* Estilo para las flores */
         .flor-fix { position: absolute; z-index: 5; pointer-events: none; mix-blend-mode: multiply; }
-        .flor2 { position: relative; width: 130px; margin: 10px auto; display: block; mix-blend-mode: multiply; }
+        .flor2 { position: relative; width: 130px; margin: 0px auto; display: block; mix-blend-mode: multiply; }
         .flor3 { width: 150px; margin: 20px auto; display: block; mix-blend-mode: multiply; }
-        .flor6 { width: 140px; margin: 20px auto; display: block; mix-blend-mode: multiply; transform: rotate(180deg); }
-        header { padding: 70px 20px 20px; }
+        /* La flor6 ahora está arriba, ajustamos su tamaño */
+        .flor6-top { position: relative; width: 140px; margin: 0 auto; display: block; mix-blend-mode: multiply; }
+
+        /* Reducción de espacio superior */
+        header { padding: 30px 20px 20px; }
         .nuestra-boda { font-family: 'Rosellinda', cursive; font-size: 3rem; color: #888; margin-bottom: 0; }
-        /* AJUSTE DE PESO EN LOS NOMBRES */
-        .nombres-container { 
-            font-family: 'Rosellinda', cursive; 
-            font-size: 4.5rem; 
-            color: #222; 
-            line-height: 0.9; 
-            margin: 20px 0; 
-            font-weight: normal; /* Se quitó el negrita */
-        }
+        
+        .nombres-container { font-family: 'Rosellinda', cursive; font-size: 4.5rem; color: #222; line-height: 0.9; margin: 20px 0; font-weight: normal; }
         .nombres-container span { display: block; }
         .ampersand { font-size: 3rem; color: var(--color-dorado); }
 
@@ -45,16 +45,17 @@
         .padres-col p { margin: 5px 0; font-size: 1.2rem; }
 
         .fecha-gr { font-size: 3.5rem; font-weight: bold; margin: 5px 0; }
-        
         .evento { padding: 50px 20px; border-bottom: 1px solid #f9f9f9; }
-        .icono-dorado { font-size: 2.2rem; color: var(--color-dorado); margin-bottom: 15px; }
+        .icono-dorado { font-size: 2.2rem; color: var(--color-dorado); margin-bottom: 15px; display: block; }
         .btn-mapa { display: inline-block; padding: 12px 30px; border: 1px solid #444; color: #444; text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; margin-top: 15px; }
 
         .galeria-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 20px; }
         .galeria-grid img { width: 100%; height: 200px; object-fit: cover; border-radius: 4px; }
 
-        .detalles-sec { padding: 50px 30px; background: #fffdfa; }
-        .caja-detalle { margin-bottom: 40px; }
+        /* Ajuste de espacio en detalles */
+        .detalles-sec { padding: 20px 30px; background: #fffdfa; }
+        .caja-detalle { margin-bottom: 30px; }
+        .caja-detalle:last-child { margin-bottom: 0px; }
         .caja-detalle h3 { font-size: 1.8rem; margin-bottom: 10px; }
 
         .rsvp { background: #222; color: white; padding: 60px 20px; }
@@ -66,7 +67,8 @@
     <div class="container">
         <header>
             <p class="nuestra-boda">Nuestra Boda</p>
-            <img src="flor2.png" class="flor2">
+            <img src="flor6.png" class="flor6-top">
+            
             <h1 class="nombres-container"><span>Josías</span><span class="ampersand">&</span><span>Naomi</span></h1>
             <div id="timer">
                 <div class="box"><span class="num" id="d">0</span><span class="lab">Días</span></div>
@@ -87,30 +89,20 @@
         </div>
 
         <section class="padres-sec">
+            <div class="padres-col"><h3>Padres de la Novia</h3><p>Agustín Libia Ticliahuanca</p><p>Noemí Esquén Ordoñez</p></div>
             <div class="padres-col"><h3>Padres del Novio</h3><p>Javier Arturo Mendoza Chalán</p><p>Socorro Aponte Orosco</p></div>
-            <div class="padres-col"><h3>Padres de la Novia</h3><p>Aguntín Libia Ticliahuanca</p><p>Noemi Esquen Ordoñez</p></div>
         </section>
 
         <img src="flor3.png" class="flor3">
         <p style="letter-spacing: 6px; font-weight: bold;">NOS CASAMOS</p>
         <div class="fecha-gr">20 de Abril</div>
-        <div style="font-size: 1.5rem;">10:30 AM</div>
+        <div style="font-size: 1.5rem;">11:00 AM</div>
 
         <section class="evento">
             <i class="fas fa-book-open icono-dorado"></i>
             <h2>Consejo Bíblico Matrimonial</h2>
-            <p>Salón del Reino de Los Testigos de Jehová<br><strong>Amaru Inca Yupanqui 736</strong>, La Victoria</p>
-           <a href="https://www.google.com/maps/search/?api=1&query=Salón+del+Reino+de+los+Testigos+de+Jehová+Amaru+Inca+Yupanqui+751+La+Victoria" target="_blank" class="btn-mapa">VER UBICACIÓN</a>
-        </section>
-
-        <section class="evento" style="background:#fafbf5;">
-            <i class="fas fa-glass-cheers icono-dorado"></i>
-            <h2>Recepción</h2>
-            <span style="display:block; margin:10px 0; font-style:italic; color:#555;">
-                Mr. Will Campestre<br>
-                Prolongación Saenz Peña y calle España, Monsefú
-            </span>
-            <a href="https://www.google.com/maps/search/?api=1&query=Mr.+Will+Campestre+Monsefú" target="_blank" class="btn-mapa">VER UBICACIÓN</a>
+            <p>Salón del Reino de Los Testigos de Jehová<br><strong>Amaru Inca Yupanqui 735</strong>, La Victoria</p>
+            <a href="https://maps.app.goo.gl/YourMapLink" target="_blank" class="btn-mapa">VER UBICACIÓN</a>
         </section>
 
         <section style="padding: 40px 20px;">
@@ -120,17 +112,28 @@
                 <img src="foto3.jpeg"><img src="foto4.jpeg">
             </div>
         </section>
+
         <section class="detalles-sec">
-            <div class="caja-detalle"><h3>Código de Vestimenta</h3><p>Formal de Día</p></div>
-            <div class="caja-detalle"><h3>Recepción de Regalos</h3><p>El regalo es opcional, la asistencia es obligatoria. Si deseas tener un detalle con nosotros lo pueden hacer llegar a: <strong>Calle Antenor Orrego 1351 - Chiclayo</strong></p></div>
+            <div class="caja-detalle">
+                <i class="fas fa-user-tie icono-dorado"></i>
+                <h3>Código de Vestimenta</h3>
+                <p>Formal de Día</p>
+            </div>
+            <div class="caja-detalle">
+                <i class="fas fa-gift icono-dorado"></i>
+                <h3>Recepción de Regalos</h3>
+                <p>El regalo es opcional, la asistencia es obligatoria. Si deseas tener un detalle: <strong>Calle Antenor Orrego 1351 - Chiclayo</strong></p>
+            </div>
         </section>
-        <img src="flor6.png" class="flor6">
+
+        <img src="flor2.png" class="flor2">
+
         <div class="rsvp">
             <span class="frase-final">¡Vas a ser parte de nuestra historia de amor!</span>
             <h2>Confirmación</h2>
             <div class="botones-wa">
                 <a href="https://wa.me/51992926660?text=Hola%20Naomi,%20confirmo%20mi%20asistencia%20a%20tu%20boda.%20¡Muchas%20felicidades!" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Confirmar a la Novia</a>
-                <a href="https://wa.me/51990907777?text=Hola%20Josías,%20confirmo%20mi%20asistencia%20a%20tu%20boda.%20¡Muchas%20felicidades!" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Confirmar al Novio</a>
+                <a href="https://wa.me/51990907777?text=Hola%20Josías,%20confirmo%20mi%20asistencia%20a%20vuestra%20boda.%20¡Muchas%20felicidades!" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Confirmar al Novio</a>
             </div>
         </div>
 
@@ -140,17 +143,10 @@
     <script>
         const audio = document.getElementById("player");
         const playIcon = document.getElementById("play-icon");
-        
         function toggleMusic() {
-            if (audio.paused) { 
-                audio.play().catch(e => console.error("Error audio:", e)); 
-                playIcon.classList.replace("fa-play", "fa-pause"); 
-            } else { 
-                audio.pause(); 
-                playIcon.classList.replace("fa-pause", "fa-play"); 
-            }
+            if (audio.paused) { audio.play().catch(e => console.error("Error audio:", e)); playIcon.classList.replace("fa-play", "fa-pause"); }
+            else { audio.pause(); playIcon.classList.replace("fa-pause", "fa-play"); }
         }
-
         const target = new Date("April 20, 2026 11:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
